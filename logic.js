@@ -51,9 +51,12 @@ const buttonDiv = document.querySelector('.button-div');
 const container = document.querySelector('.container');
 const offBtn = document.getElementById('off');
 const onBtn = document.getElementById('on');
+const contentmain=document.querySelector(".content");
 
 offBtn.style.display = "block";
 onBtn.style.display = "none";
+contentmain.style.width="0";
+contentmain.style.height="0";
 
 buttonDiv.addEventListener('click', () => {
   
@@ -61,6 +64,8 @@ buttonDiv.addEventListener('click', () => {
     onBtn.style.display = "block";
     offBtn.style.display = "none";
     container.style.transform = "scale(1.6)";
+    contentmain.style.width="35.5%";
+    contentmain.style.height="57%";
     if (playaud) {
       playaud.play().catch((error) => {
         console.error("Audio play error:", error);
@@ -70,6 +75,8 @@ buttonDiv.addEventListener('click', () => {
     offBtn.style.display = "block";
     onBtn.style.display = "none";
     container.style.transform = "scale(1)";
+    contentmain.style.width="0";
+contentmain.style.height="0";
     if (playaud) {
       playaud.play().catch((error) => {
         console.error("Audio play error:", error);
