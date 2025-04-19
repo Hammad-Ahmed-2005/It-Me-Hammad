@@ -48,16 +48,73 @@ body {
   inset: 0;
   pointer-events: none; /* Prevent interference with clicks */
 }
+.bg-back {
+  position: absolute;
+  inset: 0;
+  opacity: 0.13;
+  object-fit: cover;
+  transform-origin: center;
+  animation: scaleGlitch 10s ease-in-out infinite alternate;
+  filter: contrast(1.05) brightness(1.1) blur(1px);
+  z-index: -1;
+}
+
+@keyframes scaleGlitch {
+  0% {
+    transform: scale(1) translate(0px, 0px);
+  }
+  25% {
+    transform: scale(1.005) translate(0.5px, -0.5px);  /* more subtle glitch */
+  }
+  50% {
+    transform: scale(1.01) translate(-0.5px, 0.5px);
+  }
+  75% {
+    transform: scale(1.005) translate(0.2px, 0.2px);   /* more subtle glitch */
+  }
+  100% {
+    transform: scale(1.01) translate(0px, 0px);
+  }
+}
+.move-up-down {
+  position: absolute;
+  inset: 0;
+  opacity: 20%;
+  object-fit: cover;
+  animation: fluidSplitMove 9s infinite;
+}
+@keyframes fluidSplitMove {
+  0% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px); /* fluid rise */
+  }
+  41% {
+    transform: translateY(25px);  /* sudden drop */
+  }
+  42% {
+    transform: translateY(0);     /* snap back to normal */
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 
 .content {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 22%;
-  height: 34%;
+  background-image: 
+    url('project-assits/background-computer-d0f45e.jpg');
+  background-position: center, center;
+  background-size: cover, cover;
+  background-repeat: no-repeat, no-repeat;
+  width: 0;
+  height: 0;
   overflow: hidden;
   border-radius: 6px;
-  border: 10px solid var(--color-black);
-  background-color: red;
+  transition: all 0.5s;
+  overflow: hidden;
 }
